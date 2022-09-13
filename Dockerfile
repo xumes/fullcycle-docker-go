@@ -1,10 +1,10 @@
-FROM golang:1.15 as builder
+FROM golang:1.15-alpine as builder
 
 WORKDIR /app
 
 COPY . .
 
-RUN go build
+RUN go build -ldflags "-w"
 
 FROM scratch
 
